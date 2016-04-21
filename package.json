@@ -1,0 +1,19 @@
+{
+  "name": "fauxapi",
+  "version": "1.0.0",
+  "description": "faux api for testing angular 2 login",
+  "main": "app.js",
+  "dependencies": {
+    "koa": "^1.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com-rogusdev:rogusdev/fauxapi.git"
+  },
+  "author": "Chris Rogus",
+  "license": "MIT"
+}
