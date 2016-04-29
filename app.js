@@ -38,6 +38,12 @@ app.use(function *(){
     var login = yield parse.json(this);
     console.log(login);
 
+    // http://stackoverflow.com/questions/18310394/no-access-control-allow-origin-node-apache-port-issue
+    this.set('Access-Control-Allow-Origin', 'http://localhost:3000');
+    this.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    this.set('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    this.set('Access-Control-Allow-Credentials', true);
+
     if (login.email == "EMAILADDRESS" && login.password == "PASSWORD")
     {
         response = {'login': true,
