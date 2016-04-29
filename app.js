@@ -10,29 +10,9 @@ http://weblogs.asp.net/shijuvarghese/a-simple-crud-demo-with-koa-js
 
 */
 
-var app = require('koa')();
-var parse = require('co-body');
+var app = require('koa')(),
+    parse = require('co-body');
 
-
-// x-response-time
-
-app.use(function *(next){
-    var start = new Date;
-    yield next;
-    var ms = new Date - start;
-    this.set('X-Response-Time', ms + 'ms');
-});
-
-// logger
-
-app.use(function *(next){
-    var start = new Date;
-    yield next;
-    var ms = new Date - start;
-    console.log('%s %s - %s', this.method, this.url, ms);
-});
-
-// response
 
 /*
 
@@ -49,7 +29,7 @@ curl -s --data \
 
 curl -s --data \
  "{\"email\":\"EMAILADDRESS\",\"password\":\"PASSWORD\"}" \
- http://localhost:3000/dev/auth/email/login \
+ http://localhost:3003/dev/auth/email/login \
  | node -e "console.log(JSON.parse(require('fs').readFileSync('/dev/stdin')))"
 
  */
@@ -72,6 +52,6 @@ app.use(function *(){
     this.body = JSON.stringify(response);
 });
 
-app.listen(3000);
+app.listen(3003);
 
 console.log('Started listening @ ' + new Date());
